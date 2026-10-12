@@ -111,18 +111,18 @@ function ImpactResult({ data }: { data: ImpactResponse }) {
       </div>
 
       <div className="border rounded-md divide-y">
-        {data.dependencies.map((dep, i) => (
+        {data && data.dependencies.length && data.dependencies?.map((dep, i) => (
           <div key={i} className="p-3">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {dep.ObjectType}
+                {dep.object_type}
               </span>
               <span className="font-mono text-sm">
-                {dep.SchemaName}.{dep.ObjectName}
+                {dep.schema_name}.{dep.object_name}
               </span>
             </div>
             <pre className="bg-muted p-2 rounded text-xs font-mono overflow-auto max-h-32">
-              {dep.Definition}
+              {dep.definition}
             </pre>
           </div>
         ))}

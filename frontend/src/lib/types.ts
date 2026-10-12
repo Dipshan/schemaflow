@@ -16,11 +16,11 @@ export interface ImpactRequest {
 }
 
 export interface Dependency {
-  ObjectType: string;
-  SchemaName: string;
-  ObjectName: string;
-  Definition: string;
-  DependencyType: string;
+  object_type: string;
+  schema_name: string;
+  object_name: string;
+  definition: string;
+  dependency_type: string;
 }
 
 export interface ImpactResponse {
