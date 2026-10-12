@@ -1,0 +1,24 @@
+Concurrency Experiment Started...
+Starting 10 goroutines reading from title_basics...
+Goroutine 7: 100 reads complete
+Goroutine 8: 100 reads complete
+Goroutine 10: 100 reads complete
+Goroutine 3: 100 reads complete
+Goroutine 5: 100 reads complete
+Goroutine 9: 100 reads complete
+Goroutine 6: 100 reads complete
+Goroutine 2: 100 reads complete
+Goroutine 1: 100 reads complete
+Goroutine 4: 100 reads complete
+>>> Running migration: ALTER TABLE ADD COLUMN <<<
+>>> Migration complete <<<
+
+=== Results ===
+Total reads completed: 1000 / 1000
+Total errors: 0
+Elapsed time: 501.954209ms
+
+PASS: No deadlocks, no data loss
+
+Cleaning up test column...
+Done.

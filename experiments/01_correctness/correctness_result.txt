@@ -1,0 +1,34 @@
+Baseline rows:   100
+Rewritten rows:  100
+Diff lines:        4
+
+# Experiment 1: Correctness
+
+## Objective
+Prove that rewritten queries return 100% identical results after a column rename.
+
+## Setup
+- Table: title_basics
+- Rows: 25,000
+- Column renamed: primary_title → movie_title
+- Query: SELECT tconst, primary_title, start_year FROM title_basics ORDER BY tconst LIMIT 100
+
+## Methodology
+1. Captured baseline query results BEFORE rename
+2. Renamed column via /migrate API
+3. Rewrote query via /rewrite API
+4. Applied rename in PostgreSQL (ALTER TABLE)
+5. Ran rewritten query AFTER rename
+6. Compared results with diff
+
+## Results
+- Baseline rows: 100
+- Rewritten rows: 100
+- Diff lines: 4
+The diff command reported 4 lines, but these represent a single change: the column header (primary_title → movie_title). All 100 data rows were identical between baseline and rewritten results. The header change is expected because the column was renamed. No data differences were found.
+
+## Conclusion
+PASS — Rewritten query returned identical results.
+
+## Date
+Sep 22, 2026
